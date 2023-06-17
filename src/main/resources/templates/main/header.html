@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <style>
+        .header {
+            background-color: #87cefa;
+            padding: 1rem;
+        }
+
+        .logo {
+            display: inline-block;
+            margin-right: 2rem;
+        }
+
+        .nav {
+            display: inline-block;
+        }
+
+        .nav a {
+            margin-right: 1rem;
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+<header th:fragment="main_headerFragment">
+    <a class="logo" href="/main/index">그로스톤 1기 프로젝트</a>
+    <nav class="nav">
+        <a href="/main/login" sec:authorize="isAnonymous()">로그인</a>
+        <a href="/main/register/mentor" sec:authorize="isAnonymous()"> 멘토 회원가입 </a>
+        <a href="/main/register/mentee" sec:authorize="isAnonymous()"> 멘티 회원가입 </a>
+        <a href="/main/mypage" sec:authorize="isAuthenticated()">마이페이지</a>
+        <a href="/logout" sec:authorize="isAuthenticated()">로그아웃</a>
+        <a href="/main/profile" sec:authorize="isAuthenticated()">회원 정보 수정</a>
+    </nav>
+</header>
+</body>
+</html>
